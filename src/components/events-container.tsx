@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useMemo, useRef } from 'react';
 
 import { EventScenarios } from './event-scenarios';
 import { EventsGrid } from './events-grid';
@@ -18,6 +18,13 @@ interface EventsContainerProps {
 
 export const EventsContainer: React.FC<EventsContainerProps> = ({ events }) => {
 
+  const activeScenarios = useMemo(() => 
+    SCENARIOS.filter(scenario => {
+      const scenarioEvents = events[scenario.id];
+      return scenarioEvents !== undefined && scenarioEvents.length > 0;
+    })
+  , [events]);
+  
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const scrollToCurrentTime = () => {
@@ -31,7 +38,10 @@ export const EventsContainer: React.FC<EventsContainerProps> = ({ events }) => {
   return (
     <div className="flex">
       {/* Columna fija de escenarios */}
-      <EventScenarios onTimeClick={scrollToCurrentTime} />
+      <EventScenarios 
+        scenarios={activeScenarios}
+        onTimeClick={scrollToCurrentTime}  
+      />
 
       {/* Área desplazable */}
       <div ref={scrollContainerRef} className="flex-grow overflow-x-auto">
@@ -47,17 +57,22 @@ export const EventsContainer: React.FC<EventsContainerProps> = ({ events }) => {
           </EventsGrid>
 
           {/* Filas de eventos */}
-          {SCENARIOS.map(scenario => (
-            <EventsGrid key={`grid-${scenario.id}`} columns={TOTAL_COLUMNS}>
-              {events[scenario.id].map((event: Event , index: number) => (
-                <EventSlotCell
-                  key={`${scenario.id}-${event.banda}`}
-                  event={event}
-                  nextEvent={events[scenario.id][index + 1]}
-                />
-              ))}
-            </EventsGrid>
-          ))}
+          {activeScenarios.map(scenario => {
+            const scenarioEvents = events[scenario.id];
+            if (!scenarioEvents) return null;
+            
+            return (
+              <EventsGrid key={`grid-${scenario.id}`} columns={TOTAL_COLUMNS}>
+                {scenarioEvents.map((event: Event, index: number) => (
+                  <EventSlotCell
+                    key={`${scenario.id}-${event.banda}`}
+                    event={event}
+                    nextEvent={scenarioEvents[index + 1]}
+                  />
+                ))}
+              </EventsGrid>
+            );
+          })}
         </div>
       </div>
     </div>

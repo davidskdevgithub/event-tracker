@@ -1,5 +1,5 @@
 export interface Scenario {
-  id: 'norte' | 'sur' | 'montana' | 'boomerang' | 'casitablues' | 'hangarclub';
+  id: 'norte' | 'sur' | 'montana' | 'boomerang' | 'casitablues' | 'hangarclub' | 'paraguay';
   name: string;
   logo: string;
 }
@@ -11,6 +11,6 @@ export interface Event {
   isFav?: boolean;
 }
 
-export type EventsType = {
+export type EventsType = Partial<{
   [K in Scenario['id']]: Event[];
-};
+}>;

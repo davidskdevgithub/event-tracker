@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { EventsContainer } from './events-container';
-import { EVENTS, EVENTS_TEST } from '../mocks/data';
+import { EVENTS_DAY_1, EVENTS_DAY_2 } from '../mocks/data';
 
 export const EventsTabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'day1' | 'day2'>('day1');
@@ -32,7 +32,7 @@ export const EventsTabs: React.FC = () => {
       </div>
 
       <div className="flex-grow">
-        <EventsContainer events={activeTab === 'day1' ? EVENTS : EVENTS_TEST} />
+        <EventsContainer events={activeTab === 'day1' ? EVENTS_DAY_1 : EVENTS_DAY_2} />
       </div>
 
       <div className="text-gray-300 text-md space-y-1 px-6">
