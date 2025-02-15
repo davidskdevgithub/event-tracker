@@ -10,6 +10,8 @@ import { TOTAL_COLUMNS, START_TIME, TOTAL_MINUTES } from '../utils/config';
 import { timeToMinutes, getCurrentArgentinaTime } from '../utils/time';
 import { TIME_SLOTS, SCENARIOS, EVENTS } from '../mocks/data';
 
+import { Event } from '../types';
+
 export const EventsContainer: React.FC = () => {
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -43,7 +45,7 @@ export const EventsContainer: React.FC = () => {
           {/* Filas de eventos */}
           {SCENARIOS.map(scenario => (
             <EventsGrid key={`grid-${scenario.id}`} columns={TOTAL_COLUMNS}>
-              {EVENTS[scenario.id].map((event, index) => (
+              {EVENTS[scenario.id].map((event: Event , index: number) => (
                 <EventSlotCell
                   key={`${scenario.id}-${event.banda}`}
                   event={event}

@@ -1,6 +1,6 @@
 import { Event } from '../types';
 import { useState, useEffect } from 'react';
-import { START_TIME, COLUMN_DURATION, TOTAL_MINUTES, TOTAL_COLUMNS } from '../utils/config';
+import { START_TIME, COLUMN_DURATION, TOTAL_COLUMNS } from '../utils/config';
 import { timeToMinutes } from '../utils/time';
 
 interface EventSlotCellProps {
