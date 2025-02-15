@@ -1,9 +1,9 @@
-import { EventsContainer } from './components/events-container';
+import { EventsTabs } from './components/events-tabs';
 
 function App() {
   return (
     <main className="m-auto min-h-screen">
-      <EventsContainer />
+      <EventsTabs />
     </main>
   );
 }
