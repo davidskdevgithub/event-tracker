@@ -6,9 +6,9 @@ export const EventsTabs: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'day1' | 'day2'>('day1');
 
   return (
-    <div className="flex flex-col gap-8 h-full justify-center">
+    <div className="flex flex-col gap-8 h-full">
 
-      <div className="flex gap-8 h-14">
+      <div className="flex gap-8 h-14 justify-center">
         <button
           className={`w-40 border border-gray-700 px-4 py-2 text-lg ${
             activeTab === 'day1' 
@@ -35,10 +35,11 @@ export const EventsTabs: React.FC = () => {
         <EventsContainer events={activeTab === 'day1' ? EVENTS : EVENTS_TEST} />
       </div>
 
-      <div className="text-gray-300 text-md space-y-1">
+      <div className="text-gray-300 text-md space-y-1 px-6">
         <p>- click en cada banda para agregar/quitar a tus favs</p>
         <p>- click en el relojito para ir a la hora actual</p>
         <p>- no sé cuanto toca cada banda</p>
+        <p>- el fin de cada banda es un aprox</p>
         <p>- si algo cambia en el evento, no se actualiza </p>
       </div>
     </div>

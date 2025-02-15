@@ -29,12 +29,12 @@ export const EventSlotCell: React.FC<EventSlotCellProps> = ({ event, nextEvent }
   const startMinutes = timeToMinutes(event.start) - START_TIME;
 
   let endMinutes: number;
+  const maxDuration = startMinutes + 90;
   if (event.end) {
     endMinutes = timeToMinutes(event.end) - START_TIME;
   } else if (nextEvent) {
-    // endMinutes = timeToMinutes(nextEvent.start) - START_TIME;
     const nextEventMinutes = timeToMinutes(nextEvent.start) - START_TIME;
-    endMinutes = nextEventMinutes;
+    endMinutes = Math.min(nextEventMinutes, maxDuration);
   } else {
     endMinutes = startMinutes + 90;
   }
