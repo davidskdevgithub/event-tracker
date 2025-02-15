@@ -1,5 +1,5 @@
 export interface Scenario {
-  id: 'norte' | 'sur' | 'montana' | 'boomerang' | 'paraguay' | 'casitablues';
+  id: 'norte' | 'sur' | 'montana' | 'boomerang' | 'casitablues' | 'hangarclub';
   name: string;
   logo: string;
 }
