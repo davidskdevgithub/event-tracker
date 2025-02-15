@@ -10,6 +10,9 @@ interface TimeSlotCellProps {
 export const TimeSlotCell: React.FC<TimeSlotCellProps> = ({ index, time }) => {
   const column = Math.floor(index * CELLS) + 1;
 
+  const [hours] = time.split(':').map(Number);
+  const formattedTime = hours >= 24 ? `+${hours - 24}:00` : time;
+
   return (
     <div
       className="flex items-center px-3 bg-gray-800 font-bold text-sm border-x border-gray-700"
@@ -18,7 +21,7 @@ export const TimeSlotCell: React.FC<TimeSlotCellProps> = ({ index, time }) => {
         gridRow: '1',
       }}
     >
-      {time}
+      {formattedTime}
     </div>
   );
 };

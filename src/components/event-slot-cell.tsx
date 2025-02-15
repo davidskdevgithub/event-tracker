@@ -1,6 +1,6 @@
 import { Event } from '../types';
 import { useState, useEffect } from 'react';
-import { START_TIME, COLUMN_DURATION, TOTAL_MINUTES } from '../utils/config';
+import { START_TIME, COLUMN_DURATION, TOTAL_MINUTES, TOTAL_COLUMNS } from '../utils/config';
 import { timeToMinutes } from '../utils/time';
 
 interface EventSlotCellProps {
@@ -32,13 +32,17 @@ export const EventSlotCell: React.FC<EventSlotCellProps> = ({ event, nextEvent }
   if (event.end) {
     endMinutes = timeToMinutes(event.end) - START_TIME;
   } else if (nextEvent) {
-    endMinutes = timeToMinutes(nextEvent.start) - START_TIME;
+    // endMinutes = timeToMinutes(nextEvent.start) - START_TIME;
+    const nextEventMinutes = timeToMinutes(nextEvent.start) - START_TIME;
+    endMinutes = nextEventMinutes;
   } else {
-    endMinutes = TOTAL_MINUTES; // Hasta el final del día si no hay siguiente evento
+    endMinutes = startMinutes + 90;
   }
 
   const startColumn = Math.floor(startMinutes / COLUMN_DURATION) + 1;
   const endColumn = Math.floor(endMinutes / COLUMN_DURATION) + 1;
+
+  if (startColumn > TOTAL_COLUMNS) return null;
 
   return (
     <div

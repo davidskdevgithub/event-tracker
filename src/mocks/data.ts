@@ -9,7 +9,13 @@ export const SCENARIOS: Scenario[] = [
   { id: 'casitablues', name: 'Casita B', logo: '' },
 ];
 
-export const TIME_SLOTS = ['14:00', '14:30', '15:00', '15:30', '16:00', '16:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', '23:00', '23:30'];
+export const TIME_SLOTS = [
+  '14:00', '14:30', '15:00', '15:30', '16:00', '16:30', 
+  '17:00', '17:30', '18:00', '18:30', '19:00', '19:30', 
+  '20:00', '20:30', '21:00', '21:30', '22:00', '22:30', 
+  '23:00', '23:30', '00:00', '00:30', '01:00', '01:30',
+  '02:00', '02:30', '03:00', '03:30'
+];
 
 export const EVENTS_TEST: EventsType = {
   'norte': [
@@ -92,7 +98,7 @@ export const EVENTS: EventsType = {
     { 'start': '19:40', 'end': '', 'banda': 'WOS' },
     { 'start': '21:40', 'end': '', 'banda': 'BABASÓNICOS' },
     { 'start': '23:10', 'end': '', 'banda': 'LAS PASTILLAS DEL ABUELO' },
-    // { 'start': '00:30', 'end': '', 'banda': 'RATONES PARANOICOS' }
+    { 'start': '00:30', 'end': '', 'banda': 'RATONES PARANOICOS' }
   ],
   'norte': [
     { 'start': '14:30', 'end': '', 'banda': 'SANTI CELLI' },
@@ -102,7 +108,7 @@ export const EVENTS: EventsType = {
     { 'start': '19:35', 'end': '', 'banda': 'DIVIDIDOS' },
     { 'start': '21:40', 'end': '', 'banda': 'AIRBAG' },
     { 'start': '23:10', 'end': '', 'banda': 'DILLOM' },
-    // { 'start': '00:40', 'end': '', 'banda': 'LOS AUTENTICOS DECADENTES' }
+    { 'start': '00:40', 'end': '', 'banda': 'LOS AUTENTICOS DECADENTES' }
   ],
   'boomerang': [
     { 'start': '14:50', 'end': '', 'banda': 'UMA' },
@@ -114,7 +120,7 @@ export const EVENTS: EventsType = {
     { 'start': '20:30', 'end': '', 'banda': 'EMANUEL HORVILLEUR' },
     { 'start': '21:30', 'end': '', 'banda': 'EL PLAN DE LA MARIPOSA' },
     { 'start': '22:50', 'end': '', 'banda': 'TURF' },
-    // { 'start': '00:00', 'end': '', 'banda': 'POLENTA' }
+    { 'start': '00:00', 'end': '', 'banda': 'POLENTA' }
   ],
   'montana': [
     { 'start': '15:00', 'end': '', 'banda': 'INAZULINA' },
@@ -122,10 +128,10 @@ export const EVENTS: EventsType = {
     { 'start': '17:10', 'end': '', 'banda': 'CRUZANDO EL CHARCO' },
     { 'start': '18:40', 'end': '', 'banda': 'LA VELA PUERCA' },
     { 'start': '20:40', 'end': '', 'banda': 'NO TE VA GUSTAR' },
-    { 'start': '22:40', 'end': '', 'banda': 'CONOCIENDO RUSIA' }
-    // { 'start': '00:00', 'end': '', 'banda': 'MARIANO MELLINO' },
-    // { 'start': '01:00', 'end': '', 'banda': 'JULIAN JEWEIL' },
-    // { 'start': '02:00', 'end': '', 'banda': 'POPOF B2B SPACE 92' }
+    { 'start': '22:40', 'end': '', 'banda': 'CONOCIENDO RUSIA' },
+    { 'start': '00:00', 'end': '', 'banda': 'MARIANO MELLINO' },
+    { 'start': '01:00', 'end': '', 'banda': 'JULIAN JEWEIL' },
+    { 'start': '02:00', 'end': '', 'banda': 'POPOF B2B SPACE 92' }
   ],
   'hangarclub': [
     { 'start': '17:00', 'end': '', 'banda': 'MARTI DEATH' },
