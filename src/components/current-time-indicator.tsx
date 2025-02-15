@@ -1,8 +1,21 @@
+import { useState, useEffect } from 'react';
 import { START_TIME, TOTAL_MINUTES } from '../utils/config';
-import { timeToMinutes } from '../utils/time';
+import { timeToMinutes, getCurrentArgentinaTime } from '../utils/time';
 
 export const CurrentTimeIndicator: React.FC = () => {
-  const currentTime = "17:17";
+  const [currentTime, setCurrentTime] = useState<string>('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      setCurrentTime(getCurrentArgentinaTime());
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 60000); // Update every minute
+
+    return () => clearInterval(interval);
+  }, []);
+
   const currentMinutes = timeToMinutes(currentTime) - START_TIME;
   const position = (currentMinutes / TOTAL_MINUTES) * 100;
 

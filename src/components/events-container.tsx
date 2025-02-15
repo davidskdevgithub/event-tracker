@@ -7,7 +7,7 @@ import { EventSlotCell } from './event-slot-cell';
 import { CurrentTimeIndicator } from './current-time-indicator';
 
 import { TOTAL_COLUMNS, START_TIME, TOTAL_MINUTES } from '../utils/config';
-import { timeToMinutes } from '../utils/time';
+import { timeToMinutes, getCurrentArgentinaTime } from '../utils/time';
 import { TIME_SLOTS, SCENARIOS, EVENTS } from '../mocks/data';
 
 export const EventsContainer: React.FC = () => {
@@ -17,7 +17,7 @@ export const EventsContainer: React.FC = () => {
   const scrollToCurrentTime = () => {
     const container = scrollContainerRef.current;
     if (container) {
-      const currentTimePosition = container.scrollWidth * (timeToMinutes("17:27") - START_TIME) / TOTAL_MINUTES;
+      const currentTimePosition = container.scrollWidth * (timeToMinutes(getCurrentArgentinaTime()) - START_TIME) / TOTAL_MINUTES;
       container.scrollTo({ left: currentTimePosition - (container.clientWidth / 2), behavior: 'smooth' });
     }
   };
