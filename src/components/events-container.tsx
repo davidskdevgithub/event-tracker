@@ -2,6 +2,7 @@ import { EventScenarios } from './event-scenarios';
 import { EventsGrid } from './events-grid';
 import { TimeSlotCell } from './time-slot-cell';
 import { EventSlotCell } from './event-slot-cell';
+import { CurrentTimeIndicator } from './current-time-indicator';
 
 import { TOTAL_COLUMNS } from '../utils/config';
 import { TIME_SLOTS, SCENARIOS, EVENTS } from '../mocks/data';
@@ -14,7 +15,10 @@ export const EventsContainer: React.FC = () => {
 
       {/* Área desplazable */}
       <div className="flex-grow overflow-x-auto">
-        <div className="inline-block min-w-full">
+        <div className="inline-block min-w-full relative">
+          {/* Time Indicator */}
+          <CurrentTimeIndicator />
+
           {/* Fila de horarios */}
           <EventsGrid columns={TOTAL_COLUMNS}>
             {TIME_SLOTS.map((slot, index) => (
