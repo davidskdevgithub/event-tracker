@@ -43,18 +43,22 @@ export const EventSlotCell: React.FC<EventSlotCellProps> = ({ event, nextEvent }
   return (
     <div
       onClick={handleToggleFav}
-      className={`p-1 overflow-hidden text-xs rounded cursor-pointer ${
-        isFav 
-          ? 'bg-blue-400 text-black' 
-          : 'bg-white text-black'
-      }`}
+      className={`py-2 overflow-hidden cursor-pointer`}
       style={{
         gridColumn: `${startColumn} / ${endColumn}`,
         gridRow: '1',
       }}
     >
-      <div className="font-bold">{event.banda}</div>
-      <div>{event.start}</div>
+      <div
+        className={`p-1 h-full text-sm rounded  ${
+          isFav 
+            ? 'bg-blue-400 text-black' 
+            : 'bg-white text-black'
+        }`}
+      >
+        <div className="font-bold">{event.banda}</div>
+        <div>{event.start}</div>
+      </div>
     </div>
   );
 };

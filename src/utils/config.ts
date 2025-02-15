@@ -5,4 +5,4 @@ export const TOTAL_MINUTES = END_TIME - START_TIME;
 export const COLUMN_DURATION = 10; // Duración de cada columna en minutos
 export const TOTAL_COLUMNS = TOTAL_MINUTES / COLUMN_DURATION;
 
-export const ROW_HEIGHT = 'h-12';
+export const ROW_HEIGHT = 'h-20';
