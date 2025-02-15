@@ -34,6 +34,13 @@ export const EventsTabs: React.FC = () => {
       <div className="flex-grow">
         <EventsContainer events={activeTab === 'day1' ? EVENTS : EVENTS_TEST} />
       </div>
+
+      <div className="text-gray-300 text-md space-y-1">
+        <p>- click en cada banda para agregar/quitar a tus favs</p>
+        <p>- click en el relojito para ir a la hora actual</p>
+        <p>- no sé cuanto toca cada banda</p>
+        <p>- si algo cambia en el evento, no se actualiza </p>
+      </div>
     </div>
   );
 };
