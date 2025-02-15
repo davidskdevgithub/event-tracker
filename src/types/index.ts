@@ -8,6 +8,7 @@ export interface Event {
   start: string;
   end: string;
   banda: string;
+  isFav?: boolean;
 }
 
 export type EventsType = {
